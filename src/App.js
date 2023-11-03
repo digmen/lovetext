@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import {
+  Animator,
+  Fade,
+  MoveOut,
+  ScrollContainer,
+  ScrollPage,
+  Sticky,
+  Zoom,
+  ZoomIn,
+  ZoomOut,
+  batch,
+} from 'react-scroll-motion';
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <ScrollContainer>
+      <ScrollPage page={0}>
+        <Animator animation={batch(Fade(), Sticky(), MoveOut(0, -200))}>
+          <h1 className="text-red-500 text-lg font-medium">test</h1>
+        </Animator>
+      </ScrollPage>
+      <ScrollPage page={1}>
+        <Animator
+          animation={batch(Fade(), Sticky(), ZoomOut(0, 100), MoveOut(0, -200))}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <h1 className="text-red-500 text-lg font-medium">test</h1>
+        </Animator>
+      </ScrollPage>
+      <ScrollPage page={2}>
+        <Animator animation={batch(Fade(), Sticky(), MoveOut(0, -200))}>
+          <h1 className="text-red-500 text-lg font-medium">test</h1>
+        </Animator>
+      </ScrollPage>
+    </ScrollContainer>
   );
 }
-
-export default App;
