@@ -3,3 +3,13 @@
   margin: 0;
   padding: 0;
 }
+
+html{
+   scroll-behavior: smooth;
+}
+
+body::-webkit-scrollbar {
+  width: 0;
+  display: none;
+}
+
